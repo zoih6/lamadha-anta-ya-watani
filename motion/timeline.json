@@ -847,6 +847,64 @@
    "subAt": 0.35,
    "meta": "٢٠٢٦ / ١٠ / ١٧",
    "metaAt": 0.55
+  },
+  {
+   "id": "s10",
+   "start": 116.21,
+   "end": 123.21,
+   "art": "logo",
+   "cam": "drift",
+   "bg": null,
+   "bgOpacity": 0,
+   "bgFilter": "none",
+   "type": "endcard",
+   "typeShiftY": 175,
+   "__in": 0.55,
+   "__out": 0.0,
+   "size": 42,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "إنتاج وتصميم — استوديو ومض",
+     "words": [
+      {
+       "t": "إنتاج",
+       "s": null,
+       "e": null,
+       "k": false
+      },
+      {
+       "t": "وتصميم",
+       "s": null,
+       "e": null,
+       "k": false
+      },
+      {
+       "t": "—",
+       "s": null,
+       "e": null,
+       "k": false
+      },
+      {
+       "t": "استوديو",
+       "s": null,
+       "e": null,
+       "k": false
+      },
+      {
+       "t": "ومض",
+       "s": null,
+       "e": null,
+       "k": false
+      }
+     ],
+     "size": 42,
+     "style": "caption",
+     "revealAt": 3.7
+    }
+   ],
+   "metaAt": 0.9
   }
  ]
 }

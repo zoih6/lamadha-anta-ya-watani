@@ -101,6 +101,18 @@ html,body{
   opacity:.42;letter-spacing:6px;font-size:17px;
 }
 
+/* ---------------------------------------------------------------- end card */
+#logolayer{position:absolute;inset:0;pointer-events:none;will-change:transform}
+#logoimg{
+  position:absolute;width:394px;height:400px;opacity:0;pointer-events:none;
+  will-change:opacity,transform;transform-origin:50% 50%;
+  filter:drop-shadow(0 18px 60px rgba(0,0,0,.85));
+}
+.line.caption{
+  font-family:'PlexAr',sans-serif;font-weight:600;color:#E8DDCB;
+  letter-spacing:3px;line-height:1.5;
+}
+
 /* ---------------------------------------------------------------- overlays */
 #grain{
   position:absolute;inset:-200px;pointer-events:none;

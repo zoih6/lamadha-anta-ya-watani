@@ -24,6 +24,15 @@ function boot() {
   EL.ftr = document.getElementById('ftr');
   EL.tc = document.getElementById('tc');
   EL.stack = document.getElementById('stack');
+  EL.logolayer = document.getElementById('logolayer');
+  EL.logo = document.getElementById('logoimg');
+  if (DATA.logo) {
+    const H = 400, Wd = H * DATA.logo.aspect;
+    MAP.logoBox = { x: 960 - Wd / 2, y: 430 - H / 2, w: Wd, h: H };
+    const B = MAP.logoBox;
+    EL.logo.style.left = B.x + 'px'; EL.logo.style.top = B.y + 'px';
+    EL.logo.style.width = B.w + 'px'; EL.logo.style.height = B.h + 'px';
+  }
 
   /* Force every Arabic face to load NOW. font-display:block means Chromium
      will not fetch a face until something needs it — which would make the very
@@ -118,6 +127,7 @@ const IN = 0.20, OUT = 0.42;
 
 function paintType(scene, t, p) {
   const stack = EL.stack;
+  const tL = t - scene.start;          // scene-local clock, for untimed reveals
   // word-level kinetics
   for (let i = 0; i < wordData.length; i++) {
     const w = wordData[i], el = wordEls[i];
@@ -128,7 +138,7 @@ function paintType(scene, t, p) {
       const k = scene.lines[w.li].words.filter(x => x.s == null || x.s < 0).indexOf(w);
       const base = scene.lines[w.li].revealAt || 0;
       const st = base + k * 0.22;
-      const a = inv(st, st + IN, t);
+      const a = inv(st, st + IN, tL);
       op = a; sc = lerp(.90, 1, easeBack(a)); ty = lerp(26, 0, easeOut(a));
     } else {
       const a = inv(w.s, w.s + IN, t);
@@ -227,6 +237,18 @@ function camera(scene, t, p, energy) {
   EL.bg.style.transform = bgTr;
   EL.art.style.transform = artTr;
   EL.type.style.transform = tr;
+  if (EL.logolayer) EL.logolayer.style.transform = artTr;
+}
+
+/* ------------------------------------------------------------------ end card */
+function paintLogo(scene, t, p) {
+  if (!EL.logo) return;
+  if (scene.art !== 'logo') { EL.logo.style.opacity = 0; return; }
+  // the particles hand over to the real PNG as they land
+  const op = inv(.26, .46, p);
+  const s = lerp(1.05, 1, easeOut(inv(.26, .74, p))) * (1 + .008 * Math.sin(t * 1.5));
+  EL.logo.style.opacity = op.toFixed(3);
+  EL.logo.style.transform = `scale(${s.toFixed(4)})`;
 }
 
 /* ------------------------------------------------------------------ overlays */
@@ -281,12 +303,14 @@ window.__render = function (t) {
   const S = {
     scene, t, p, abs: t,
     mapT: MAP.t1, mapT2: MAP.t2, mapT3: MAP.t3, mapPts: MAP.pts,
+    logoBox: MAP.logoBox,
     energy,
   };
 
   camera(scene, t, p, energy);
   const fn = ART[scene.art] || ART.title;
   EL.art.innerHTML = fn(S);
+  paintLogo(scene, t, p);
   paintType(scene, t, p);
   paintChrome(scene, t, p, energy);
 };

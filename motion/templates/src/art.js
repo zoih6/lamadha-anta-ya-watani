@@ -739,8 +739,118 @@ function artFinal(S) {
   return o;
 }
 
+/* ============================================================== LOGO ========
+   End card: the studio mark assembles itself out of its own pixels, then a
+   single flash crosses it — "ومض" literally means a flash, so the name is
+   what the animation does.
+   ========================================================================== */
+function artLogo(S) {
+  const { t, p } = S;
+  const LP = DATA.logo;
+  if (!LP) return '';
+  const B = S.logoBox;                       // {x,y,w,h}
+  const cx = B.x + B.w / 2, cy = B.y + B.h / 2;
+  let o = '';
+
+  // ---- embers left over from the film's last frame
+  o += dustField(t, 46, { op: .16, size: 1.5, rise: -16, seed: 83 });
+
+  // ---- the assembly
+  const n = LP.n;
+  const settle = inv(.26, .50, p);           // particles hand over to the PNG
+  let parts = '';
+  for (let i = 0; i < n; i++) {
+    const tx = B.x + LP.x[i] * B.w;
+    const ty = B.y + LP.y[i] * B.h;
+    const dx0 = tx - cx, dy0 = ty - cy;
+    const ang = Math.atan2(dy0, dx0) + (hsh(i * 1.7) - .5) * 1.1;
+    const r0 = 560 + hsh(i * 4.3) * 620;
+    // stagger: roughly top-left -> bottom-right, with jitter so it never
+    // reads as a wipe
+    const st = .05 + .30 * (LP.y[i] * .50 + LP.x[i] * .22 + hsh(i * 9.1) * .28);
+    const e = easeIO(inv(st, st + .30, p));
+    if (e <= 0) continue;
+    const swirl = (1 - e) * (1.7 + hsh(i * 2.9) * 1.5);
+    const a2 = ang + swirl;
+    const rr = r0 * (1 - e);
+    const sx = cx + Math.cos(a2) * rr;
+    const sy = cy + Math.sin(a2) * rr * .78;
+    const x = lerp(sx, tx, e);
+    const y = lerp(sy, ty, e);
+    const r = 1.15 + (1 - e) * 1.5 + hsh(i * 6.1) * .5;
+    let op = (1 - settle) * (.55 + hsh(i * 3.3) * .45);
+    op *= Math.min(1, inv(.02, .12, p) * 1.2);
+    if (op <= .012) continue;
+    parts += `<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}" fill="${LP.c[i]}" opacity="${f1(op)}"/>`;
+  }
+  o += parts;
+
+  // ---- a ring of light closing in on the mark
+  const ring = inv(.06, .48, p);
+  if (ring < 1) {
+    const rr = lerp(620, B.w * .62, easeIO(ring));
+    o += `<ellipse cx="${cx}" cy="${cy}" rx="${f1(rr)}" ry="${f1(rr * .8)}" fill="none"
+      stroke="${C.gold}" stroke-width="${f1(1.6 * (1 - ring) + .4)}"
+      opacity="${f1(.34 * (1 - ring * .55))}"/>`;
+  }
+
+  // ---- hairline frame + caption rule
+  const fr = inv(.50, .72, p);
+  if (fr > 0) {
+    const pad = 46;
+    const x0 = cx - (B.w / 2 + pad), x1 = cx + (B.w / 2 + pad);
+    const yA = B.y - pad, yB = B.y + B.h + pad + 74;
+    o += `<g stroke="${C.paper}" stroke-width="1" opacity="${f1(.16 * fr)}" fill="none">
+      <path d="M ${f1(x0)} ${f1(lerp(yA, yA - 0, fr))} L ${f1(lerp(cx, x0, easeOut(fr)))} ${f1(yA)}"/>
+      <path d="M ${f1(x1)} ${f1(yA)} L ${f1(lerp(cx, x1, easeOut(fr)))} ${f1(yA)}"/>
+    </g>`;
+    // kept clear of the caption, which the zoom-in camera drifts downward
+    const rule = easeOut(inv(.62, .84, p));
+    const ruleY = 788;
+    o += `<line x1="${f1(cx - 190 * rule)}" y1="${f1(ruleY)}" x2="${f1(cx + 190 * rule)}" y2="${f1(ruleY)}"
+      stroke="${C.gold}" stroke-width="1.6" opacity="${f1(.72 * rule)}"/>`;
+  }
+
+  // ---- the flash that names the studio, masked to the mark.
+  // Done in SVG, not CSS: a CSS mask-image blanked the whole layer in
+  // headless Chromium (verified by isolating the element).
+  const sw = inv(.42, .64, p);
+  const fop = Math.sin(clamp(sw, 0, 1) * Math.PI);
+  if (fop > .01) {
+    const gw = B.w * 2.8;
+    const coreX = lerp(B.x + 1.30 * B.w, B.x - 0.30 * B.w, sw);
+    const rx = coreX - 1.4 * B.w;
+    o += `<defs>
+      <mask id="logomask" maskUnits="userSpaceOnUse" style="mask-type:alpha"
+            x="${f1(B.x)}" y="${f1(B.y)}" width="${f1(B.w)}" height="${f1(B.h)}">
+        <image href="../assets/brand/wamd_logo.png" x="${f1(B.x)}" y="${f1(B.y)}"
+               width="${f1(B.w)}" height="${f1(B.h)}" preserveAspectRatio="none"/>
+      </mask>
+      <linearGradient id="flashgrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset=".38" stop-color="#fff" stop-opacity="0"/>
+        <stop offset=".45" stop-color="#fff" stop-opacity=".14"/>
+        <stop offset=".50" stop-color="#fff" stop-opacity=".95"/>
+        <stop offset=".55" stop-color="#fff" stop-opacity=".14"/>
+        <stop offset=".62" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <g mask="url(#logomask)" opacity="${f1(fop)}">
+      <g transform="rotate(-9 ${f1(cx)} ${f1(cy)})">
+        <rect x="${f1(rx)}" y="${f1(B.y - B.h * .25)}" width="${f1(gw)}" height="${f1(B.h * 1.5)}"
+              fill="url(#flashgrad)"/>
+      </g>
+    </g>`;
+  }
+
+  // ---- a slow breathing glow behind the mark
+  const glow = inv(.40, 1, p) * (.5 + .5 * Math.sin(t * 1.5));
+  o += `<circle cx="${cx}" cy="${cy}" r="${f1(B.h * .95)}" fill="${C.gold}"
+    opacity="${f1(.028 * glow)}"/>`;
+  return o;
+}
+
 const ART = {
   title: artTitle, desert: artDesert, heart: artHeart, collage: artCollage,
   brutalist: artBrutalist, split3: artSplit3, tear: artTear, bridge: artBridge,
-  final: artFinal,
+  final: artFinal, logo: artLogo,
 };

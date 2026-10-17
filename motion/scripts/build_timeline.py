@@ -81,6 +81,8 @@ SCENES = [
          bg="s01_map_dust.png", bgOpacity=.26, bgFilter="brightness(1.60) contrast(1.05) saturate(.60)", type="instrumental"),
     dict(id="s9", start=113.00, end=116.21, art="final",   cam="zoomIn",
          bg=None, bgOpacity=0, bgFilter="none", type="outro"),
+    dict(id="s10", start=116.21, end=123.21, art="logo",   cam="drift",
+         bg=None, bgOpacity=0, bgFilter="none", type="endcard", typeShiftY=175),
 ]
 
 # text that is not sung (title card, interlude, signature)
@@ -98,6 +100,11 @@ STATIC = {
     "s8": dict(
         lines=[],
         meta="لِمَاذَا أَنْتَ", metaAt=.05,
+    ),
+    "s10": dict(
+        lines=[dict(text="إنتاج وتصميم — استوديو ومض", size=42, style="caption", revealAt=3.7,
+                    kw=[])],
+        metaAt=.90,
     ),
     "s9": dict(
         lines=[dict(text="لِمَاذَا أَنْتَ..!!؟؟", size=118, style="title", revealAt=.6,
@@ -324,9 +331,9 @@ def main():
     scenes = []
     for sc in SCENES:
         s = dict(sc)
-        s["__in"] = 0.42 if sc["id"] != "s9" else 0.30
-        s["__out"] = 0.42 if sc["id"] != "s9" else 0.35
-        s["size"] = {"s4": 96, "s5": 74, "s6": 78}.get(sc["id"], 86)
+        s["__in"] = {"s9": 0.30, "s10": 0.55}.get(sc["id"], 0.42)
+        s["__out"] = {"s9": 0.35, "s10": 0.00}.get(sc["id"], 0.42)
+        s["size"] = {"s4": 96, "s5": 74, "s6": 78, "s10": 42}.get(sc["id"], 86)
         s["lineGap"] = {"s4": 2, "s5": 8}.get(sc["id"], 6)
         s["vig"] = 1.0
         if sc["id"] in byscene:

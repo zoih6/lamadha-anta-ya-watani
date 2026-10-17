@@ -20,6 +20,7 @@ const data = {
   geo: JSON.parse(read(path.join(ROOT, 'analysis', 'geo_paths.json'))),
   audio: JSON.parse(read(path.join(ROOT, 'analysis', 'audio_env.json'))),
   scenes: JSON.parse(read(path.join(ROOT, 'timeline.json'))).scenes,
+  logo: JSON.parse(read(path.join(ROOT, 'analysis', 'logo_particles.json'))),
 };
 
 let html = read(path.join(SRC, 'shell.html'));

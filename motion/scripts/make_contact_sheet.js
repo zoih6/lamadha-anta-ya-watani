@@ -17,6 +17,9 @@ const OUT = path.join(ROOT, 'storyboard.html');
 
 const timeline = JSON.parse(fs.readFileSync(path.join(ROOT, 'timeline.json'), 'utf-8'));
 const PER_SCENE = 3;
+// clamp against the timeline, not against the audio length: the end card runs
+// past the last bar and would otherwise be clipped out of the sheet
+const MAXF = Math.round(Math.max(...timeline.scenes.map(s => s.end)) * FPS) - 1;
 
 const tc = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
@@ -31,7 +34,7 @@ for (const sc of timeline.scenes) {
   const picks = [0.12, 0.5, 0.88].slice(0, PER_SCENE);
   for (const f of picks) {
     const t = sc.start + (sc.end - sc.start) * f;
-    const i = Math.min(Math.round(t * FPS), Math.round(116.208 * FPS) - 1);
+    const i = Math.min(Math.round(t * FPS), MAXF);
     const file = `frame_${String(i).padStart(5, '0')}.jpg`;
     const p = path.join(FRAMES, file);
     if (!fs.existsSync(p)) continue;

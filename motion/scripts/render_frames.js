@@ -25,7 +25,6 @@ const arg = (k, d) => {
 const flag = k => process.argv.includes(`--${k}`);
 
 const FPS = 25;
-const DUR = 116.208;
 const OUTDIR = arg('out', '/var/tmp/voxframes');
 const ONLY = arg('scene', null);
 const SHOTS = arg('shots', null);          // "12.0,18.5,44" -> single frames
@@ -34,6 +33,9 @@ const QUALITY = parseInt(arg('q', '92'), 10);
 
 const timeline = JSON.parse(fs.readFileSync(path.join(ROOT, 'timeline.json'), 'utf-8'));
 const HTML = 'file://' + path.join(ROOT, 'templates', 'frame.build.html');
+// Length comes from the timeline, not from the audio: the end card runs past
+// the last bar of the song, so hardcoding the audio duration would truncate it.
+const DUR = Math.max(...timeline.scenes.map(s => s.end));
 
 function buildJob() {
   if (SHOTS) {
