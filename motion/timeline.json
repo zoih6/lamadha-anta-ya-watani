@@ -1,0 +1,852 @@
+{
+ "video": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "duration": 116.208
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": 0.0,
+   "end": 21.9,
+   "art": "title",
+   "cam": "zoomIn",
+   "bg": "s01_map_dust.png",
+   "bgOpacity": 0.4,
+   "bgFilter": "brightness(1.70) contrast(1.05) saturate(.65)",
+   "type": "title",
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 86,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "لِمَاذَا أَنْتَ..!!؟؟",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": null,
+       "e": null,
+       "k": false
+      },
+      {
+       "t": "أَنْتَ..!!؟؟",
+       "s": null,
+       "e": null,
+       "k": true
+      }
+     ],
+     "size": 132,
+     "style": "title",
+     "revealAt": 6.4
+    }
+   ],
+   "sub": "رَاجِح المُحَمَّدِي",
+   "subSize": 36,
+   "subAt": 0.42,
+   "meta": "قَصِيدَة",
+   "metaAt": 0.3
+  },
+  {
+   "id": "s2",
+   "start": 21.9,
+   "end": 31.1,
+   "art": "desert",
+   "cam": "panRight",
+   "bg": "s02_lone_desert.png",
+   "bgOpacity": 0.5,
+   "bgFilter": "brightness(.20) contrast(1.30) saturate(.30)",
+   "type": "verse",
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 86,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "لِمَاذَا",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 22.0,
+       "e": 23.26,
+       "k": false
+      }
+     ],
+     "start": 22.0,
+     "end": 23.26,
+     "size": 86,
+     "revealAt": null
+    },
+    {
+     "text": "لَا أَرَى وَطَنًا",
+     "words": [
+      {
+       "t": "لَا",
+       "s": 23.26,
+       "e": 23.56,
+       "k": false
+      },
+      {
+       "t": "أَرَى",
+       "s": 23.56,
+       "e": 24.18,
+       "k": false
+      },
+      {
+       "t": "وَطَنًا",
+       "s": 24.18,
+       "e": 24.84,
+       "k": false
+      }
+     ],
+     "start": 23.26,
+     "end": 24.84,
+     "size": 86,
+     "revealAt": null
+    },
+    {
+     "text": "وَلَا ظِلًّا",
+     "words": [
+      {
+       "t": "وَلَا",
+       "s": 24.88,
+       "e": 25.4,
+       "k": false
+      },
+      {
+       "t": "ظِلًّا",
+       "s": 25.4,
+       "e": 26.5,
+       "k": false
+      }
+     ],
+     "start": 24.88,
+     "end": 26.5,
+     "size": 86,
+     "revealAt": null
+    },
+    {
+     "text": "وَلَا شَيْئًا يُسَمَّى أَنْتْ",
+     "words": [
+      {
+       "t": "وَلَا",
+       "s": 26.52,
+       "e": 28.1,
+       "k": false
+      },
+      {
+       "t": "شَيْئًا",
+       "s": 28.1,
+       "e": 29.16,
+       "k": false
+      },
+      {
+       "t": "يُسَمَّى",
+       "s": 29.16,
+       "e": 30.3,
+       "k": false
+      },
+      {
+       "t": "أَنْتْ",
+       "s": 30.3,
+       "e": 31.08,
+       "k": true
+      }
+     ],
+     "start": 26.52,
+     "end": 31.08,
+     "size": 86,
+     "revealAt": null
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "start": 31.1,
+   "end": 39.4,
+   "art": "heart",
+   "cam": "beat",
+   "bg": "s03_heart_chart.png",
+   "bgOpacity": 0.38,
+   "bgFilter": "brightness(1.25) contrast(1.10) saturate(.60)",
+   "type": "verse",
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 86,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "لِمَاذَا",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 31.88,
+       "e": 32.84,
+       "k": false
+      }
+     ],
+     "start": 31.88,
+     "end": 32.84,
+     "size": 86,
+     "revealAt": null
+    },
+    {
+     "text": "كُلُّ هَذَا الْحُزْنِ",
+     "words": [
+      {
+       "t": "كُلُّ",
+       "s": 32.84,
+       "e": 33.2,
+       "k": false
+      },
+      {
+       "t": "هَذَا",
+       "s": 33.2,
+       "e": 33.86,
+       "k": false
+      },
+      {
+       "t": "الْحُزْنِ",
+       "s": 33.86,
+       "e": 34.72,
+       "k": false
+      }
+     ],
+     "start": 32.84,
+     "end": 34.72,
+     "size": 86,
+     "revealAt": null
+    },
+    {
+     "text": "فِي قَلْبِي",
+     "words": [
+      {
+       "t": "فِي",
+       "s": 34.72,
+       "e": 35.08,
+       "k": false
+      },
+      {
+       "t": "قَلْبِي",
+       "s": 35.08,
+       "e": 36.4,
+       "k": false
+      }
+     ],
+     "start": 34.72,
+     "end": 36.4,
+     "size": 86,
+     "revealAt": null
+    },
+    {
+     "text": "يُسَمَّى أَنْتْ",
+     "words": [
+      {
+       "t": "يُسَمَّى",
+       "s": 36.76,
+       "e": 38.36,
+       "k": false
+      },
+      {
+       "t": "أَنْتْ",
+       "s": 38.48,
+       "e": 39.18,
+       "k": true
+      }
+     ],
+     "start": 36.76,
+     "end": 39.18,
+     "size": 86,
+     "revealAt": null
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "start": 39.4,
+   "end": 53.6,
+   "art": "brutalist",
+   "cam": "shake",
+   "bg": "s05_brutalist.png",
+   "bgOpacity": 0.42,
+   "bgFilter": "brightness(1.35) contrast(1.08) saturate(.70)",
+   "type": "chorus",
+   "shakeGain": 1.1,
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 96,
+   "lineGap": 2,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "لِمَاذَا",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 40.18,
+       "e": 41.06,
+       "k": false
+      }
+     ],
+     "start": 40.18,
+     "end": 41.06,
+     "size": 96,
+     "revealAt": null
+    },
+    {
+     "text": "أَنْتَ يَا وَطَنِي",
+     "words": [
+      {
+       "t": "أَنْتَ",
+       "s": 41.06,
+       "e": 41.42,
+       "k": true
+      },
+      {
+       "t": "يَا",
+       "s": 41.42,
+       "e": 41.86,
+       "k": false
+      },
+      {
+       "t": "وَطَنِي",
+       "s": 41.86,
+       "e": 42.6,
+       "k": false
+      }
+     ],
+     "start": 41.06,
+     "end": 42.6,
+     "size": 96,
+     "revealAt": null
+    },
+    {
+     "text": "رَدِيفُ الْآهَةِ الْحَرَّى",
+     "words": [
+      {
+       "t": "رَدِيفُ",
+       "s": 43.93,
+       "e": 44.1,
+       "k": false
+      },
+      {
+       "t": "الْآهَةِ",
+       "s": 44.1,
+       "e": 44.24,
+       "k": false
+      },
+      {
+       "t": "الْحَرَّى",
+       "s": 44.36,
+       "e": 45.52,
+       "k": false
+      }
+     ],
+     "start": 43.93,
+     "end": 45.52,
+     "size": 96,
+     "revealAt": null
+    },
+    {
+     "text": "رَدِيفُ الْغُصَّةِ الْكُبْرَى",
+     "words": [
+      {
+       "t": "رَدِيفُ",
+       "s": 45.52,
+       "e": 46.14,
+       "k": false
+      },
+      {
+       "t": "الْغُصَّةِ",
+       "s": 46.2,
+       "e": 47.18,
+       "k": false
+      },
+      {
+       "t": "الْكُبْرَى",
+       "s": 47.18,
+       "e": 47.98,
+       "k": false
+      }
+     ],
+     "start": 45.52,
+     "end": 47.98,
+     "size": 96,
+     "revealAt": null
+    },
+    {
+     "text": "رَدِيفُ مَوَاجِعِ الدُّنْيَا",
+     "words": [
+      {
+       "t": "رَدِيفُ",
+       "s": 48.22,
+       "e": 48.9,
+       "k": false
+      },
+      {
+       "t": "مَوَاجِعِ",
+       "s": 48.9,
+       "e": 49.8,
+       "k": false
+      },
+      {
+       "t": "الدُّنْيَا",
+       "s": 49.8,
+       "e": 50.5,
+       "k": false
+      }
+     ],
+     "start": 48.22,
+     "end": 50.5,
+     "size": 96,
+     "revealAt": null
+    },
+    {
+     "text": "لِمَاذَا أَنْتْ",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 51.14,
+       "e": 52.0,
+       "k": false
+      },
+      {
+       "t": "أَنْتْ",
+       "s": 51.98,
+       "e": 53.38,
+       "k": true
+      }
+     ],
+     "start": 51.14,
+     "end": 53.38,
+     "size": 96,
+     "revealAt": null
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "start": 53.6,
+   "end": 65.2,
+   "art": "split3",
+   "cam": "split",
+   "bg": "s06_isometric_ruins.png",
+   "bgOpacity": 0.4,
+   "bgFilter": "brightness(.36) contrast(1.15) saturate(.55)",
+   "type": "split",
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 74,
+   "lineGap": 8,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "لِمَاذَا",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 53.65,
+       "e": 54.68,
+       "k": false
+      }
+     ],
+     "start": 53.65,
+     "end": 54.68,
+     "size": 74,
+     "revealAt": null
+    },
+    {
+     "text": "أَنْتَ يَا وَطَنِي",
+     "words": [
+      {
+       "t": "أَنْتَ",
+       "s": 54.68,
+       "e": 55.08,
+       "k": true
+      },
+      {
+       "t": "يَا",
+       "s": 55.08,
+       "e": 55.54,
+       "k": false
+      },
+      {
+       "t": "وَطَنِي",
+       "s": 55.54,
+       "e": 56.34,
+       "k": false
+      }
+     ],
+     "start": 54.68,
+     "end": 56.34,
+     "size": 74,
+     "revealAt": null
+    },
+    {
+     "text": "عَلَى الْأَيَّامِ مَصْلُوبٌ",
+     "words": [
+      {
+       "t": "عَلَى",
+       "s": 57.93,
+       "e": 58.1,
+       "k": false
+      },
+      {
+       "t": "الْأَيَّامِ",
+       "s": 58.1,
+       "e": 58.2,
+       "k": false
+      },
+      {
+       "t": "مَصْلُوبٌ",
+       "s": 58.2,
+       "e": 59.18,
+       "k": false
+      }
+     ],
+     "start": 57.93,
+     "end": 59.18,
+     "size": 74,
+     "revealAt": null
+    },
+    {
+     "text": "عَلَى الطُّرُقَاتِ مَسْفُوكٌ",
+     "words": [
+      {
+       "t": "عَلَى",
+       "s": 59.22,
+       "e": 59.48,
+       "k": false
+      },
+      {
+       "t": "الطُّرُقَاتِ",
+       "s": 59.48,
+       "e": 60.5,
+       "k": false
+      },
+      {
+       "t": "مَسْفُوكٌ",
+       "s": 60.5,
+       "e": 61.9,
+       "k": false
+      }
+     ],
+     "start": 59.22,
+     "end": 61.9,
+     "size": 74,
+     "revealAt": null
+    },
+    {
+     "text": "عَلَى الْأَنْقَاضِ مَشْنُوقٌ",
+     "words": [
+      {
+       "t": "عَلَى",
+       "s": 61.9,
+       "e": 62.26,
+       "k": false
+      },
+      {
+       "t": "الْأَنْقَاضِ",
+       "s": 62.26,
+       "e": 63.2,
+       "k": false
+      },
+      {
+       "t": "مَشْنُوقٌ",
+       "s": 63.22,
+       "e": 65.1,
+       "k": false
+      }
+     ],
+     "start": 61.9,
+     "end": 65.1,
+     "size": 74,
+     "revealAt": null
+    },
+    {
+     "text": "لِمَاذَا أَنْتْ",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 65.1,
+       "e": 65.18,
+       "k": false
+      },
+      {
+       "t": "أَنْتْ",
+       "s": 65.18,
+       "e": 65.2,
+       "k": true
+      }
+     ],
+     "start": 65.1,
+     "end": 65.2,
+     "size": 74,
+     "revealAt": null
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "start": 65.2,
+   "end": 89.2,
+   "art": "tear",
+   "cam": "orbit",
+   "bg": "s07_teardrop.png",
+   "bgOpacity": 0.44,
+   "bgFilter": "brightness(1.15) contrast(1.05) saturate(.70)",
+   "type": "verse",
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 78,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "لِمَاذَا",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 69.02,
+       "e": 70.42,
+       "k": false
+      }
+     ],
+     "start": 69.02,
+     "end": 70.42,
+     "size": 78,
+     "revealAt": null
+    },
+    {
+     "text": "كُلَّمَا أَبْكِي",
+     "words": [
+      {
+       "t": "كُلَّمَا",
+       "s": 70.42,
+       "e": 70.84,
+       "k": false
+      },
+      {
+       "t": "أَبْكِي",
+       "s": 71.16,
+       "e": 73.14,
+       "k": false
+      }
+     ],
+     "start": 70.42,
+     "end": 73.14,
+     "size": 78,
+     "revealAt": null
+    },
+    {
+     "text": "أَرَى وَجَعِي",
+     "words": [
+      {
+       "t": "أَرَى",
+       "s": 73.14,
+       "e": 73.94,
+       "k": false
+      },
+      {
+       "t": "وَجَعِي",
+       "s": 73.94,
+       "e": 75.88,
+       "k": false
+      }
+     ],
+     "start": 73.14,
+     "end": 75.88,
+     "size": 78,
+     "revealAt": null
+    },
+    {
+     "text": "أَرَى جَزَعِي",
+     "words": [
+      {
+       "t": "أَرَى",
+       "s": 76.16,
+       "e": 76.64,
+       "k": false
+      },
+      {
+       "t": "جَزَعِي",
+       "s": 76.66,
+       "e": 78.24,
+       "k": false
+      }
+     ],
+     "start": 76.16,
+     "end": 78.24,
+     "size": 78,
+     "revealAt": null
+    },
+    {
+     "text": "أَرَى دَمْعِي الَّذِي يَنْسَابُ مِنِّي أَنْتْ",
+     "words": [
+      {
+       "t": "أَرَى",
+       "s": 78.36,
+       "e": 78.86,
+       "k": false
+      },
+      {
+       "t": "دَمْعِي",
+       "s": 78.86,
+       "e": 79.48,
+       "k": false
+      },
+      {
+       "t": "الَّذِي",
+       "s": 79.48,
+       "e": 80.44,
+       "k": false
+      },
+      {
+       "t": "يَنْسَابُ",
+       "s": 80.6,
+       "e": 81.62,
+       "k": false
+      },
+      {
+       "t": "مِنِّي",
+       "s": 81.62,
+       "e": 82.56,
+       "k": false
+      },
+      {
+       "t": "أَنْتْ",
+       "s": 84.82,
+       "e": 85.52,
+       "k": true
+      }
+     ],
+     "start": 78.36,
+     "end": 85.52,
+     "size": 78,
+     "revealAt": null
+    },
+    {
+     "text": "لِمَاذَا أَنْتْ",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": 86.38,
+       "e": 87.44,
+       "k": false
+      },
+      {
+       "t": "أَنْتْ",
+       "s": 87.44,
+       "e": 88.14,
+       "k": true
+      }
+     ],
+     "start": 86.38,
+     "end": 88.14,
+     "size": 78,
+     "revealAt": null
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "start": 89.2,
+   "end": 104.0,
+   "art": "collage",
+   "cam": "morph",
+   "bg": "s04_faces_collage.png",
+   "bgOpacity": 0.34,
+   "bgFilter": "brightness(1.20) contrast(1.05) saturate(.60)",
+   "type": "instrumental",
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 86,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "أَنْتَ",
+     "words": [
+      {
+       "t": "أَنْتَ",
+       "s": null,
+       "e": null,
+       "k": true
+      }
+     ],
+     "size": 96,
+     "style": "kwonly",
+     "revealAt": 2.2
+    }
+   ],
+   "meta": "مَقْطَعٌ مُوسِيقِيّ",
+   "metaAt": 0.1
+  },
+  {
+   "id": "s8",
+   "start": 104.0,
+   "end": 113.0,
+   "art": "bridge",
+   "cam": "drift",
+   "bg": "s01_map_dust.png",
+   "bgOpacity": 0.26,
+   "bgFilter": "brightness(1.60) contrast(1.05) saturate(.60)",
+   "type": "instrumental",
+   "__in": 0.42,
+   "__out": 0.42,
+   "size": 86,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [],
+   "meta": "لِمَاذَا أَنْتَ",
+   "metaAt": 0.05
+  },
+  {
+   "id": "s9",
+   "start": 113.0,
+   "end": 116.21,
+   "art": "final",
+   "cam": "zoomIn",
+   "bg": null,
+   "bgOpacity": 0,
+   "bgFilter": "none",
+   "type": "outro",
+   "__in": 0.3,
+   "__out": 0.35,
+   "size": 86,
+   "lineGap": 6,
+   "vig": 1.0,
+   "lines": [
+    {
+     "text": "لِمَاذَا أَنْتَ..!!؟؟",
+     "words": [
+      {
+       "t": "لِمَاذَا",
+       "s": null,
+       "e": null,
+       "k": false
+      },
+      {
+       "t": "أَنْتَ..!!؟؟",
+       "s": null,
+       "e": null,
+       "k": true
+      }
+     ],
+     "size": 118,
+     "style": "title",
+     "revealAt": 0.6
+    }
+   ],
+   "sub": "رَاجِح المُحَمَّدِي",
+   "subSize": 34,
+   "subAt": 0.35,
+   "meta": "٢٠٢٦ / ١٠ / ١٧",
+   "metaAt": 0.55
+  }
+ ]
+}

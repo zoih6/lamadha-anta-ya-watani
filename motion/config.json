@@ -1,0 +1,4 @@
+{
+  "video":  { "width": 1920, "height": 1080, "fps": 25, "duration": 116.208 },
+  "colors": { "bg": "#0B0B0D", "paper": "#E8DDCB", "accent": "#8B1A1A", "gold": "#C9A86A" }
+}

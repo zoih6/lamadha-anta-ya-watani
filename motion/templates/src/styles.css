@@ -1,0 +1,148 @@
+/* ===========================================================================
+   "لماذا أنت..!!؟؟" — VOX motion-graphics renderer
+   Palette is locked to the style guide: charcoal / paper / muted blood / gold
+   =========================================================================== */
+
+@font-face{font-family:'Cairo';font-style:normal;font-weight:400;font-display:block;
+  src:url('../assets/fonts/cairo-400.woff2') format('woff2');}
+@font-face{font-family:'Cairo';font-style:normal;font-weight:700;font-display:block;
+  src:url('../assets/fonts/cairo-700.woff2') format('woff2');}
+@font-face{font-family:'Cairo';font-style:normal;font-weight:900;font-display:block;
+  src:url('../assets/fonts/cairo-900.woff2') format('woff2');}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:400;font-display:block;
+  src:url('../assets/fonts/tajawal-400.woff2') format('woff2');}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:block;
+  src:url('../assets/fonts/tajawal-700.woff2') format('woff2');}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:800;font-display:block;
+  src:url('../assets/fonts/tajawal-800.woff2') format('woff2');}
+@font-face{font-family:'Tajawal';font-style:normal;font-weight:900;font-display:block;
+  src:url('../assets/fonts/tajawal-900.woff2') format('woff2');}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:400;font-display:block;
+  src:url('../assets/fonts/amiri-400.woff2') format('woff2');}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:700;font-display:block;
+  src:url('../assets/fonts/amiri-700.woff2') format('woff2');}
+@font-face{font-family:'PlexAr';font-style:normal;font-weight:400;font-display:block;
+  src:url('../assets/fonts/ibm-plex-sans-arabic-400.woff2') format('woff2');}
+@font-face{font-family:'PlexAr';font-style:normal;font-weight:600;font-display:block;
+  src:url('../assets/fonts/ibm-plex-sans-arabic-600.woff2') format('woff2');}
+@font-face{font-family:'PlexAr';font-style:normal;font-weight:700;font-display:block;
+  src:url('../assets/fonts/ibm-plex-sans-arabic-700.woff2') format('woff2');}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html,body{
+  width:1920px;height:1080px;overflow:hidden;background:#0B0B0D;
+}
+
+#stage{
+  position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;
+  background:#0B0B0D;direction:rtl;
+}
+
+/* ---------------------------------------------------------------- background */
+#bgwrap{position:absolute;inset:0;overflow:hidden;will-change:transform}
+#bg{
+  position:absolute;left:-6%;top:-6%;width:112%;height:112%;
+  background-size:cover;background-position:center;
+  will-change:transform;
+}
+#bgtint{position:absolute;inset:0;}
+
+/* ---------------------------------------------------------------- vector art */
+#art{
+  position:absolute;inset:0;width:1920px;height:1080px;
+  pointer-events:none;
+}
+
+/* ---------------------------------------------------------------- typography */
+#type{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  will-change:transform;
+}
+#type .stack{
+  width:88%;max-width:1680px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.line{
+  font-family:'Cairo',sans-serif;font-weight:900;
+  color:#E8DDCB;line-height:1.42;white-space:nowrap;
+  text-shadow:0 6px 46px rgba(0,0,0,.92), 0 1px 0 rgba(0,0,0,.5);
+  letter-spacing:-.5px;
+  will-change:transform,opacity;
+}
+.w{
+  display:inline-block;white-space:pre;
+  will-change:transform,opacity,filter;
+  transform-origin:50% 60%;
+}
+
+/* the hero word */
+.w.kw{
+  font-family:'Tajawal',sans-serif;font-weight:900;
+  color:#8B1A1A;
+  text-shadow:0 0 46px rgba(139,26,26,.55), 0 6px 40px rgba(0,0,0,.9);
+}
+.w.kw.gold{color:#C9A86A;text-shadow:0 0 60px rgba(201,168,106,.45),0 6px 40px rgba(0,0,0,.9)}
+
+/* brutalist chorus */
+.line.brut{
+  font-family:'Tajawal',sans-serif;font-weight:900;
+  letter-spacing:-3px;line-height:1.06;
+}
+.line.brut .w{transform-origin:50% 50%}
+
+/* subtitle / signature */
+.sub{
+  font-family:'Amiri',serif;font-weight:700;color:#C9A86A;
+  letter-spacing:3px;opacity:0;will-change:opacity,transform;
+}
+.meta{
+  font-family:'PlexAr',sans-serif;font-weight:400;color:#E8DDCB;
+  opacity:.42;letter-spacing:6px;font-size:17px;
+}
+
+/* ---------------------------------------------------------------- overlays */
+#grain{
+  position:absolute;inset:-200px;pointer-events:none;
+  background-repeat:repeat;mix-blend-mode:overlay;
+  will-change:transform;
+}
+#papertex{
+  position:absolute;inset:0;pointer-events:none;
+  background-repeat:repeat;mix-blend-mode:soft-light;opacity:.5;
+}
+#fibres{
+  position:absolute;inset:0;pointer-events:none;
+  background-repeat:repeat;mix-blend-mode:screen;opacity:.14;
+}
+#vig{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 78% 78% at 50% 48%,
+    rgba(11,11,13,0) 38%, rgba(11,11,13,.55) 74%, rgba(11,11,13,.94) 100%);
+}
+#scan{
+  position:absolute;inset:0;pointer-events:none;opacity:.16;
+  background:repeating-linear-gradient(to bottom,
+    rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(11,11,13,.9) 3px, rgba(11,11,13,.9) 4px);
+}
+#flash{position:absolute;inset:0;pointer-events:none;background:#0B0B0D;opacity:0}
+
+/* ---------------------------------------------------------------- VOX chrome */
+#hdr{
+  position:absolute;top:44px;right:56px;left:56px;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  font-family:'PlexAr',sans-serif;font-weight:600;font-size:15px;
+  letter-spacing:4px;color:#E8DDCB;opacity:.34;
+}
+#hdr .tag{border:1px solid rgba(232,221,203,.28);padding:5px 12px;border-radius:2px}
+#ftr{
+  position:absolute;bottom:40px;right:56px;left:56px;height:26px;
+  display:flex;align-items:flex-end;gap:3px;justify-content:flex-end;opacity:.5;
+}
+#ftr i{display:block;width:2px;background:#8B1A1A;border-radius:1px;height:3px}
+
+#tc{
+  position:absolute;bottom:38px;left:56px;
+  font-family:'PlexAr',sans-serif;font-weight:400;font-size:14px;
+  letter-spacing:3px;color:#E8DDCB;opacity:.3;direction:ltr;
+}
