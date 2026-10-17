@@ -23,6 +23,8 @@ rsync -a --delete \
   --exclude 'analysis/spectrogram.png' \
   --exclude 'output/' \
   --exclude '.git/' \
+  --exclude '__pycache__/' \
+  --exclude '.DS_Store' \
   "$ROOT/" "$DEST/"
 
 # the render is the deliverable — copy it separately so --delete never eats it
