@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const FRAMES = process.env.FRAMES || '/var/tmp/voxframes';
-const AUDIO = process.env.AUDIO || '/home/user/repo/audio.mp3';
+const AUDIO = process.env.AUDIO || path.join(ROOT, 'assets', 'audio.mp3');
 
 const OUT = path.join(ROOT, 'output');
 fs.mkdirSync(OUT, { recursive: true });

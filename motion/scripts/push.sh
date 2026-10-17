@@ -5,12 +5,19 @@ set -euo pipefail
 
 MSG="${1:-update: motion-graphics build}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-REPO="${REPO:-/home/user/repo}"
+REPO="${REPO:-/tmp/lamadha-repo}"   # outside the workspace: it is a disposable clone, never part of the 128MB snapshot
 TOKEN_FILE="${TOKEN_FILE:-/home/user/.secrets/gh_token}"
 DEST="$REPO/motion"
 
 [ -f "$TOKEN_FILE" ] || { echo "!! no token at $TOKEN_FILE"; exit 1; }
 TOKEN="$(cat "$TOKEN_FILE")"
+
+# the working clone is disposable: everything lives on GitHub, so re-clone if missing
+if [ ! -d "$REPO/.git" ]; then
+  echo ">> cloning fresh working copy"
+  rm -rf "$REPO"
+  git clone -q "https://oauth2:${TOKEN}@github.com/zoih6/lamadha-anta-ya-watani.git" "$REPO"
+fi
 
 echo ">> syncing $ROOT  ->  $DEST"
 mkdir -p "$DEST"
@@ -22,6 +29,7 @@ rsync -a --delete \
   --exclude 'analysis/_*.log' \
   --exclude 'analysis/spectrogram.png' \
   --exclude 'output/' \
+  --exclude 'assets/audio.mp3' \
   --exclude '.git/' \
   --exclude '__pycache__/' \
   --exclude '.DS_Store' \
